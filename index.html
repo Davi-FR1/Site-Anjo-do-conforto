@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anjo do Conforto — Home Care para Idosos</title>
+<meta name="description" content="Cuidado domiciliar humano e qualificado para idosos. Anjo do Conforto Home Care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FBF4E8;
+    --cream-deep: #F1E3CB;
+    --cream-card: #FFFDF8;
+    --brown: #43331F;
+    --brown-soft: #75614A;
+    --terracotta: #C16B3E;
+    --terracotta-deep: #A85530;
+    --gold: #B68A3F;
+    --gold-light: #E6CE9C;
+    --line: rgba(67,51,31,0.12);
+    --shadow: 0 20px 50px -25px rgba(67,51,31,0.35);
+    --radius: 22px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body{
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--brown);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  a{ color: inherit; text-decoration: none; }
+
+  h1, h2, h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--brown);
+  }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    margin-bottom: 18px;
+  }
+
+  .eyebrow::before{
+    content:"";
+    width: 26px;
+    height: 1px;
+    background: var(--terracotta);
+    display:inline-block;
+  }
+
+  /* signature halo-arc divider, echoing the halo in the logo */
+  .halo{
+    width: 84px;
+    height: 30px;
+    margin: 22px auto 0;
+    display:block;
+  }
+  .halo.left{ margin: 22px 0 0; }
+
+  :focus-visible{
+    outline: 2px solid var(--terracotta-deep);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 100;
+    background: rgba(251,244,232,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    transition: box-shadow .3s ease;
+  }
+  header.scrolled{ box-shadow: 0 8px 30px -20px rgba(67,51,31,0.4); }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: 1.05rem;
+    color: var(--brown);
+  }
+  .brand img{
+    width: 44px; height:44px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 14px -4px rgba(182,138,63,0.6);
+  }
+  .brand span{ display:flex; flex-direction:column; line-height:1.15; }
+  .brand small{ font-family:'Nunito',sans-serif; font-weight:600; font-size:0.66rem; letter-spacing:0.1em; color: var(--terracotta-deep); text-transform:uppercase; }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap: 34px;
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+  .nav-links a{
+    position:relative;
+    padding: 4px 0;
+    color: var(--brown-soft);
+    transition: color .2s ease;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute; left:0; bottom:-2px;
+    width:0; height:2px;
+    background: var(--terracotta);
+    transition: width .25s ease;
+  }
+  .nav-links a:hover{ color: var(--brown); }
+  .nav-links a:hover::after{ width:100%; }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight: 800;
+    font-size: 0.88rem;
+    padding: 13px 26px;
+    border-radius: 999px;
+    cursor:pointer;
+    border: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep));
+    color: #FFF6EA;
+    box-shadow: 0 14px 26px -12px rgba(168,85,48,0.65);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 18px 30px -12px rgba(168,85,48,0.75); }
+  .btn-ghost{
+    background: transparent;
+    color: var(--brown);
+    border: 1.5px solid var(--line);
+  }
+  .btn-ghost:hover{ border-color: var(--terracotta); color: var(--terracotta-deep); }
+
+  .menu-toggle{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 168px 0 110px;
+    position: relative;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top: -120px; right: -160px;
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+    opacity: .55;
+    pointer-events:none;
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items:center;
+  }
+
+  .hero h1{
+    font-size: clamp(2.5rem, 4.6vw, 3.9rem);
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em{
+    font-style: normal;
+    color: var(--terracotta-deep);
+    position: relative;
+  }
+
+  .hero p.lead{
+    margin-top: 22px;
+    font-size: 1.18rem;
+    color: var(--brown-soft);
+    max-width: 46ch;
+  }
+
+  .hero-actions{
+    margin-top: 36px;
+    display:flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust{
+    margin-top: 40px;
+    display:flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .hero-trust div{ display:flex; flex-direction:column; }
+  .hero-trust strong{ font-family:'Fraunces',serif; font-size:1.5rem; color: var(--terracotta-deep); }
+  .hero-trust span{ font-size: 0.82rem; color: var(--brown-soft); font-weight:600; }
+
+  .hero-art{
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-card{
+    background: var(--cream-card);
+    border-radius: 32px;
+    padding: 38px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+    position:relative;
+    max-width: 380px;
+  }
+  .hero-card img{
+    border-radius: 20px;
+    width:100%;
+  }
+  .hero-card .caption{
+    margin-top: 18px;
+    text-align:center;
+    font-family:'Fraunces', serif;
+    font-size: 1.05rem;
+    color: var(--brown-soft);
+    font-style: italic;
+  }
+  .floating-pill{
+    position:absolute;
+    background: var(--cream-card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 12px 18px;
+    box-shadow: var(--shadow);
+    font-weight: 800;
+    font-size: 0.82rem;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    animation: float 5s ease-in-out infinite;
+  }
+  .floating-pill.p1{ top: -18px; left: -36px; }
+  .floating-pill.p2{ bottom: -22px; right: -28px; animation-delay: 1.2s; }
+  @keyframes float{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-10px); }
+  }
+
+  /* ---------- Section shared ---------- */
+  section{ padding: 110px 0; position:relative; }
+  .center{ text-align:center; }
+  .section-head{ max-width: 640px; margin: 0 auto 60px; }
+  .section-head h2{ font-size: clamp(2rem, 3.4vw, 2.7rem); }
+  .section-head p{ margin-top: 16px; color: var(--brown-soft); font-size: 1.08rem; }
+
+  /* ---------- Services ---------- */
+  .services{ background: var(--cream-deep); }
+  .grid-services{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .service-card{
+    background: var(--cream-card);
+    border-radius: var(--radius);
+    padding: 36px 30px;
+    border: 1px solid var(--line);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .service-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow); }
+  .icon-circle{
+    width: 56px; height:56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-light), var(--cream-deep));
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 22px;
+  }
+  .icon-circle svg{ width:26px; height:26px; stroke: var(--terracotta-deep); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  .service-card h3{ font-size: 1.22rem; margin-bottom: 10px; }
+  .service-card p{ color: var(--brown-soft); font-size: 0.97rem; }
+
+  /* ---------- Missão, Visão, Valores ---------- */
+  .mvv{ background: var(--cream); }
+  .mvv-top{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+  .mvv-card{
+    background: var(--cream-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 34px 32px;
+  }
+  .mvv-card h3, .mvv-values-title{
+    display:flex;
+    align-items:baseline;
+    gap: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  .mvv-card h3 span, .mvv-values-title span{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    background: var(--gold-light);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .mvv-card p{ color: var(--brown-soft); font-size: 0.98rem; }
+  .mvv-values-title{ justify-content:center; text-align:center; margin-bottom: 34px; }
+  .mvv-values{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .mvv-value{
+    display:flex;
+    gap: 16px;
+    align-items:flex-start;
+    background: var(--cream-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+  }
+  .mvv-value strong{ display:block; font-family:'Fraunces',serif; font-weight:600; font-size:1.02rem; margin-bottom:4px; }
+  .mvv-value span{ color: var(--brown-soft); font-size: 0.9rem; }
+  .icon-circle.small{ width:44px; height:44px; flex-shrink:0; margin-bottom:0; }
+  .icon-circle.small svg{ width:20px; height:20px; }
+
+  /* ---------- Gallery ---------- */
+  .gallery{ background: var(--cream-deep); }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 26px;
+  }
+  .gallery-photo{
+    position:relative;
+    border-radius: var(--radius);
+    overflow:hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+  .gallery-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .gallery-photo.tall{ min-height: 480px; }
+  .gallery-photo.short{ min-height: 480px; }
+  .gallery-caption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding: 22px 24px;
+    background: linear-gradient(0deg, rgba(67,51,31,0.78), transparent);
+    color: #FBF4E8;
+    font-family:'Fraunces', serif;
+    font-size: 1.02rem;
+  }
+
+  /* ---------- Sorteio banner ---------- */
+  .promo{
+    background: linear-gradient(135deg, var(--gold-light), var(--cream-deep));
+  }
+  .promo-inner{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 40px;
+    align-items:center;
+    background: var(--cream-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    padding: 20px;
+  }
+  .promo-inner img{
+    border-radius: 16px;
+    width:100%;
+  }
+  .promo-copy h2{ font-size: clamp(1.6rem, 2.6vw, 2.1rem); margin-bottom:14px; }
+  .promo-copy p{ color: var(--brown-soft); margin-bottom: 22px; }
+  .promo-copy .btn{ margin-right: 10px; margin-top: 4px; }
+
+  /* ---------- About ---------- */
+  .about{ background: var(--cream); }
+  .about-grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items:center;
+  }
+  .about-art{
+    position:relative;
+    border-radius: 28px;
+    overflow:hidden;
+    background: linear-gradient(160deg, var(--gold-light), var(--cream-deep));
+    padding: 50px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: var(--shadow);
+  }
+  .about-art img{
+    width: 70%;
+    filter: drop-shadow(0 18px 30px rgba(67,51,31,0.25));
+  }
+  .about-copy p{ color: var(--brown-soft); font-size: 1.05rem; margin-bottom: 18px; }
+  .values{
+    margin-top: 30px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 28px;
+  }
+  .value-item{ display:flex; gap:14px; align-items:flex-start; }
+  .value-dot{
+    width: 10px; height:10px; border-radius:50%;
+    background: var(--terracotta);
+    margin-top: 7px;
+    flex-shrink:0;
+  }
+  .value-item strong{ display:block; font-family:'Fraunces',serif; font-weight:600; font-size:1.02rem; }
+  .value-item span{ color: var(--brown-soft); font-size: 0.92rem; }
+
+  /* ---------- Contact ---------- */
+  .contact{ background: var(--cream-deep); }
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items:start;
+  }
+  .contact-info{ display:flex; flex-direction:column; gap: 22px; }
+  .info-card{
+    background: var(--cream-card);
+    border-radius: 18px;
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    display:flex; gap:16px; align-items:flex-start;
+  }
+  .info-card svg{ width:22px; height:22px; stroke: var(--terracotta-deep); fill:none; stroke-width:1.7; flex-shrink:0; margin-top:3px; }
+  .info-card strong{ display:block; font-family:'Fraunces',serif; font-size:1.02rem; margin-bottom:3px; }
+  .info-card span, .info-card a{ color: var(--brown-soft); font-size: 0.94rem; }
+  .info-card a:hover{ color: var(--terracotta-deep); }
+
+  form{
+    background: var(--cream-card);
+    border-radius: var(--radius);
+    padding: 38px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .field{ margin-bottom: 20px; }
+  .field label{
+    display:block;
+    font-weight:800;
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+    color: var(--brown);
+  }
+  .field input, .field textarea{
+    width:100%;
+    border: 1.5px solid var(--line);
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 13px 16px;
+    font-family:'Nunito',sans-serif;
+    font-size: 0.96rem;
+    color: var(--brown);
+    transition: border-color .2s ease;
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none;
+    border-color: var(--terracotta);
+  }
+  .field textarea{ resize: vertical; min-height: 110px; }
+  form .btn-primary{ width:100%; justify-content:center; margin-top: 6px; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--brown);
+    color: var(--gold-light);
+    padding: 56px 0 28px;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap: 34px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid rgba(230,206,156,0.18);
+  }
+  .footer-brand{ display:flex; align-items:center; gap:12px; }
+  .footer-brand img{ width:46px; height:46px; border-radius:50%; }
+  .footer-brand strong{ font-family:'Fraunces',serif; font-size:1.1rem; color:#FBF4E8; display:block; }
+  .footer-brand small{ font-size:0.78rem; color: var(--gold-light); opacity:0.85; }
+  .footer-links{ display:flex; gap: 30px; flex-wrap:wrap; font-weight:700; font-size:0.9rem; }
+  .footer-links a{ color: var(--gold-light); opacity:0.9; }
+  .footer-links a:hover{ opacity:1; text-decoration: underline; }
+  .footer-bottom{
+    padding-top: 24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap: 10px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 920px){
+    .hero-grid, .about-grid, .contact-grid{ grid-template-columns: 1fr; }
+    .about-grid{ row-gap: 40px; }
+    .about-art{ order: -1; }
+    .grid-services{ grid-template-columns: 1fr 1fr; }
+    .mvv-top{ grid-template-columns: 1fr; }
+    .mvv-values{ grid-template-columns: 1fr 1fr; }
+    .gallery-grid{ grid-template-columns: 1fr; }
+    .gallery-photo.tall, .gallery-photo.short{ min-height: 340px; }
+    .promo-inner{ grid-template-columns: 1fr; }
+    .nav-links{ display:none; }
+    .menu-toggle{
+      display:flex; align-items:center; justify-content:center;
+      width:40px; height:40px;
+      background:none; border:none; cursor:pointer;
+    }
+    .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
+      content:""; display:block; width:22px; height:2px; background: var(--brown); position:relative; transition: all .2s ease;
+    }
+    .menu-toggle span::before{ position:absolute; top:-7px; }
+    .menu-toggle span::after{ position:absolute; top:7px; }
+    .nav-links.open{
+      display:flex;
+      position:absolute;
+      top: 100%; left:0; right:0;
+      background: var(--cream);
+      flex-direction:column;
+      padding: 22px 28px 30px;
+      border-bottom: 1px solid var(--line);
+      gap: 18px;
+    }
+  }
+  @media (max-width: 640px){
+    .grid-services{ grid-template-columns: 1fr; }
+    .values{ grid-template-columns: 1fr; }
+    .mvv-values{ grid-template-columns: 1fr; }
+    .hero{ padding-top: 140px; }
+    .hero-actions .btn{ width:100%; justify-content:center; }
+    .footer-grid, .footer-bottom{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="nav">
+    <a href="#inicio" class="brand">
+      <img src="assets/logo.jpg" alt="Anjo do Conforto Home Care">
+      <span>Anjo do Conforto<small>Home Care</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#missao">Missão e Valores</a>
+      <a href="#sobre">Sobre Nós</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/5516994349728" class="btn btn-primary" target="_blank" rel="noopener">Fale Conosco</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span></button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero-grid">
+      <div class="reveal in">
+        <div class="eyebrow">Home care para idosos</div>
+        <h1>Cuidado que abraça <em>como família</em></h1>
+        <p class="lead">A Anjo do Conforto leva profissionais de saúde dedicados até a casa de quem você ama, com carinho, segurança e atenção em cada detalhe do dia a dia.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5516994349728" class="btn btn-primary" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a href="#servicos" class="btn btn-ghost">Conhecer os serviços</a>
+        </div>
+        <div class="hero-trust">
+          <div><strong>24h</strong><span>Disponibilidade de plantão</span></div>
+          <div><strong>100%</strong><span>Equipe qualificada</span></div>
+          <div><strong>1:1</strong><span>Plano de cuidado individual</span></div>
+        </div>
+      </div>
+      <div class="hero-art reveal in">
+        <div class="floating-pill p1">💛 Atendimento humanizado</div>
+        <div class="hero-card">
+          <img src="assets/logo.jpg" alt="Logo Anjo do Conforto">
+          <p class="caption">"Cuidar é o nosso jeito de amar."</p>
+        </div>
+        <div class="floating-pill p2">🕊️ Confiança em cada visita</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow" style="justify-content:center;">Nossos serviços</div>
+        <h2>Cuidado completo, do jeito que cada pessoa merece</h2>
+        <p>Cada plano de cuidado é montado sob medida, conforme as necessidades de saúde, a rotina e a personalidade de quem é cuidado.</p>
+      </div>
+
+      <div class="grid-services">
+        <div class="service-card reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+          <h3>Cuidados diários</h3>
+          <p>Apoio na higiene, alimentação, medicação e rotina, com respeito ao ritmo e às preferências de cada idoso.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.5-9C.6 8 2 4.5 5.3 4c2-.3 3.6.8 4.7 2.3C11.1 4.8 12.7 3.7 14.7 4c3.3.5 4.7 4 3.8 8-2.5 4.4-9.5 9-9.5 9"/><path d="M5 12h2.5l1.5-3 2 6 1.5-3H16"/></svg></div>
+          <h3>Acompanhamento de saúde</h3>
+          <p>Monitoramento de sinais vitais, controle de medicamentos e apoio na comunicação com médicos e familiares.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 12c2.2 0 4-1.8 4-4s-1.8-4-4-4"/><path d="M22 20c0-2.6-1.7-4.8-4-5.6"/></svg></div>
+          <h3>Companhia e bem-estar</h3>
+          <p>Conversa, escuta e presença para combater a solidão, com atividades leves que estimulam corpo e mente.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
+          <h3>Cuidados noturnos</h3>
+          <p>Profissionais que permanecem durante a noite, garantindo segurança e tranquilidade para toda a família.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M5 21l3-7 3 2 2-5 6 10"/><circle cx="17" cy="5" r="2"/></svg></div>
+          <h3>Mobilidade e fisioterapia</h3>
+          <p>Apoio para caminhar, exercícios de mobilidade e orientação postural, em parceria com fisioterapeutas.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 21v-6h0a2 2 0 0 1 2 2v4"/></svg></div>
+          <h3>Apoio à família</h3>
+          <p>Orientação e atualizações constantes para que os familiares se sintam seguros e bem informados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSÃO, VISÃO E VALORES -->
+  <section class="mvv" id="missao">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow" style="justify-content:center;">Missão, visão e valores</div>
+        <h2>O que guia cada visita que fazemos</h2>
+      </div>
+
+      <div class="mvv-top">
+        <div class="mvv-card reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg></div>
+          <h3>Missão <span>O propósito</span></h3>
+          <p>Proporcionar cuidados de saúde domiciliares humanizados e de excelência, garantindo bem-estar, dignidade e a máxima qualidade de vida aos pacientes, enquanto oferecemos tranquilidade e amparo seguro para suas famílias.</p>
+        </div>
+        <div class="mvv-card reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Visão <span>O futuro</span></h3>
+          <p>Ser reconhecida como a principal referência em Home Care na nossa região, destacando-se pela sensibilidade no atendimento, pela qualificação da equipe e pelo compromisso inabalável com o conforto integral do paciente.</p>
+        </div>
+      </div>
+
+      <h3 class="mvv-values-title reveal">Valores <span>Os princípios</span></h3>
+      <div class="mvv-values reveal">
+        <div class="mvv-value">
+          <div class="icon-circle small"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.5-9C.6 8 2 4.5 5.3 4c2-.3 3.6.8 4.7 2.3C11.1 4.8 12.7 3.7 14.7 4c3.3.5 4.7 4 3.8 8-2.5 4.4-9.5 9-9.5 9"/></svg></div>
+          <div><strong>Humanização</strong><span>Cuidar de cada paciente com o mesmo carinho e dedicação que daríamos a um membro da nossa própria família.</span></div>
+        </div>
+        <div class="mvv-value">
+          <div class="icon-circle small"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+          <div><strong>Respeito</strong><span>Valorizar a individualidade, a história de vida e a privacidade de quem está sob nossos cuidados.</span></div>
+        </div>
+        <div class="mvv-value">
+          <div class="icon-circle small"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V6z"/></svg></div>
+          <div><strong>Confiança</strong><span>Agir com total transparência, ética e responsabilidade dentro do lar de cada cliente.</span></div>
+        </div>
+        <div class="mvv-value">
+          <div class="icon-circle small"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.5-9C.6 8 2 4.5 5.3 4c2-.3 3.6.8 4.7 2.3C11.1 4.8 12.7 3.7 14.7 4c3.3.5 4.7 4 3.8 8-2.5 4.4-9.5 9-9.5 9"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><strong>Excelência técnica</strong><span>Manter uma equipe altamente qualificada, atenta e preparada para qualquer necessidade de saúde.</span></div>
+        </div>
+        <div class="mvv-value">
+          <div class="icon-circle small"><svg viewBox="0 0 24 24"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
+          <div><strong>Acolhimento</strong><span>Ser o "anjo" que traz paz, alívio e conforto tanto para o paciente quanto para os familiares em momentos delicados.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about" id="sobre">
+    <div class="wrap about-grid">
+      <div class="about-art reveal">
+        <img src="assets/logo.jpg" alt="Anjo do Conforto Home Care">
+      </div>
+      <div class="about-copy reveal">
+        <div class="eyebrow">Sobre nós</div>
+        <h2>Quem cuida, cuida com o coração</h2>
+        <p>A Anjo do Conforto nasceu de um propósito simples: oferecer, dentro de casa, o mesmo cuidado e carinho que gostaríamos para a nossa própria família. Reunimos profissionais qualificados e atenciosos para acompanhar idosos com dignidade, segurança e afeto, em cada fase do dia.</p>
+        <p>Mais do que um serviço, somos uma presença de confiança ao lado de quem você ama — e ao lado de você também.</p>
+
+        <div class="values">
+          <div class="value-item"><span class="value-dot"></span><div><strong>Carinho genuíno</strong><span>Cada visita é feita com atenção e respeito.</span></div></div>
+          <div class="value-item"><span class="value-dot"></span><div><strong>Profissionais qualificados</strong><span>Equipe treinada para cuidar com segurança.</span></div></div>
+          <div class="value-item"><span class="value-dot"></span><div><strong>Confiança e transparência</strong><span>Comunicação clara com toda a família.</span></div></div>
+          <div class="value-item"><span class="value-dot"></span><div><strong>Presença em cada momento</strong><span>Acompanhamento próximo, do início ao fim.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="gallery" id="galeria">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow" style="justify-content:center;">Nosso dia a dia</div>
+        <h2>Momentos de cuidado e amizade</h2>
+        <p>Cada visita é uma oportunidade de levar companhia, atenção e carinho para quem cuidamos.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-photo tall reveal">
+          <img src="assets/caregiver2.jpeg" alt="Cuidador da Anjo do Conforto acompanhando paciente idoso em passeio pela cidade">
+          <div class="gallery-caption">Companhia em cada passeio</div>
+        </div>
+        <div class="gallery-photo short reveal">
+          <img src="assets/caregiver1.jpeg" alt="Cuidador da Anjo do Conforto ao lado de pacientes idosos, sorrindo">
+          <div class="gallery-caption">Carinho que vira amizade</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMOÇÃO -->
+  <section class="promo">
+    <div class="wrap">
+      <div class="promo-inner reveal">
+        <img src="assets/sorteio.jpg" alt="Promoção Anjo do Conforto: compartilhe e concorra a R$1.000,00">
+        <div class="promo-copy">
+          <div class="eyebrow">Promoção especial</div>
+          <h2>Compartilhe e concorra a R$ 1.000,00</h2>
+          <p>Siga e compartilhe a página da Anjo do Conforto no Instagram, Facebook e WhatsApp, marque seus amigos e já estará concorrendo ao prêmio. Sorteio dia 05 de novembro.</p>
+          <a href="https://wa.me/5516994349728" class="btn btn-primary" target="_blank" rel="noopener">Participar pelo WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contato">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow" style="justify-content:center;">Contato</div>
+        <h2>Vamos cuidar de quem você ama</h2>
+        <p>Conte um pouco sobre a sua necessidade e entraremos em contato com carinho e atenção.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form class="reveal" onsubmit="event.preventDefault(); alert('Obrigado pelo contato! Em breve falaremos com você.');">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" placeholder="Seu nome completo" required>
+          </div>
+          <div class="field">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input id="telefone" type="tel" placeholder="(00) 00000-0000" required>
+          </div>
+          <div class="field">
+            <label for="mensagem">Como podemos ajudar?</label>
+            <textarea id="mensagem" placeholder="Conte um pouco sobre a situação e o tipo de cuidado que procura"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Enviar mensagem</button>
+        </form>
+
+        <div class="contact-info reveal">
+          <div class="info-card">
+            <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 0 1 2-2h2.5l2 5-2 1.5a11 11 0 0 0 5 5l1.5-2 5 2V19a2 2 0 0 1-2 2h-1C9.5 21 3 14.5 3 6V5z"/></svg>
+            <div><strong>WhatsApp / Telefone</strong><a href="https://wa.me/5516994349728">+55 16 99434-9728</a></div>
+          </div>
+          <div class="info-card">
+            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+            <div><strong>E-mail</strong><a href="mailto:wc0108407@gmail.com">wc0108407@gmail.com</a></div>
+          </div>
+          <div class="info-card">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
+            <div><strong>Endereço</strong><span>Rua Duque de Caxias, 1329 — Ribeirão Preto, SP</span></div>
+          </div>
+          <div class="info-card">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            <div><strong>Horário de atendimento</strong><span>Plantões disponíveis 24 horas, todos os dias</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.jpg" alt="Anjo do Conforto">
+        <span><strong>Anjo do Conforto</strong><small>Home Care</small></span>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Anjo do Conforto Home Care. Todos os direitos reservados.</span>
+      <span>Feito com carinho para quem cuida de quem você ama.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header shadow on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
