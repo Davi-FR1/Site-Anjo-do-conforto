@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.anjodoconforto.com.br/sitemap.xml
